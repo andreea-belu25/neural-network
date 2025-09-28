@@ -3,6 +3,7 @@ function [Link] = get_link_matrix(Labyrinth)
     [nr_lines nr_columns] = size(Adj);
     Link = zeros(nr_lines, nr_columns);
     v = zeros(1, nr_lines);
+    
     for i=1:nr_lines
       number = 0;
       for j=1:nr_columns
@@ -12,6 +13,7 @@ function [Link] = get_link_matrix(Labyrinth)
       endfor
       v(i) = number;
     endfor
+    
     for i=1:nr_lines
       for j=1:nr_columns
          if(Adj(i,j) == 1)
@@ -19,5 +21,7 @@ function [Link] = get_link_matrix(Labyrinth)
          endif
       endfor
     endfor
+    
     Link = sparse(Link);
+    
 endfunction
